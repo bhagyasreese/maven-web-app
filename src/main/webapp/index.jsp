@@ -8,7 +8,7 @@
   
   <h3> This is using AWS Ubuntu Tomcat /deployment </h3>
 
-<h4><font color='blue'> Hope you Teja & Pradeep both of you enjoying my Classes... <font></h1>
+<h4><font color='blue'> Hope Teja & Pradeep both of you are enjoying my Classes... <font></h1>
 
 
 </body>
