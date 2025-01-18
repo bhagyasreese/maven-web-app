@@ -1,20 +1,26 @@
-pipeline {  
-
+pipeline {
     agent any
-        
     tools{
-        maven "Maven-3.9.9"
+        maven 'maven-3.6.3'
     }
+
     stages {
-        stage('Clone') {
+        stage('GIT Clone') {
             steps {
-               git 'https://github.com/ashokitschool/maven-web-app.git'
+            git credentialsId: 'Github_username_password', url: 'https://github.com/sandeepkumarmekapothula/maven-web-app.git'
             }
         }
-        stage('Build') {
+
+        stage('MAVEN Build') {
             steps {
-               sh 'mvn clean package'
+            sh 'mvn clean package'
             }
+        }
+
+        stage('Deploy to Tomcat') {
+            steps {
+            deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://35.166.236.112:8081')], contextPath: null, war: '**/*.war'
+                 }
         }
     }
 }
